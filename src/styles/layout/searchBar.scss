@@ -1,0 +1,31 @@
+.seachbar-container {
+    width: 100vw;
+    background-color: #fff;
+    padding: 0;
+}
+
+#searchbar {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+
+    #search-form {
+        background-color: #fff;
+        padding: 0;
+        margin: 0;
+        width: 50vw;
+
+        form {
+            margin: 0;
+            
+            input {
+                
+            }
+
+            button {
+                margin: 0;
+            }
+        }
+    }
+}
