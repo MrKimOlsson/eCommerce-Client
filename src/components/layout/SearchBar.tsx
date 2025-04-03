@@ -43,7 +43,8 @@ function SearchBar() {
           q: searchText,
           key: 'AIzaSyBFvRB7YzihT09YoJpzFbPRzpvD2PVYRjI',
           cx: '97b12f580df94404e'
-        }
+        },
+        withCredentials: false
       });
 
 
@@ -63,17 +64,16 @@ function SearchBar() {
 
   return (
     <div className="seachbar-container">
-      <h2>Search API</h2>
+      {/* <h2>Search API</h2> */}
       <section id="searchbar">
         <form id="search-form" onSubmit={handleSearch}>
           <input
             type="text"
             placeholder="search"
-            className='border border-gray-400 rounded p-1'
             value={searchText} // Controlled component
             onChange={(e: ChangeEvent<HTMLInputElement>) => { setSearchText(e.target.value) }}
           />
-          <button type="submit" className='border border-gray-400 rounded p-1'>Search</button>
+          <button type="submit" className='search-button'>Search</button>
         </form>
       </section>
 
