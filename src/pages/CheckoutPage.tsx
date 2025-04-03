@@ -51,6 +51,7 @@ function CheckoutPage() {
           orderId: orderId,
           customerEmail: customerData.email
         }),
+        credentials: 'include',
       });
 
       if (!response.ok) {
