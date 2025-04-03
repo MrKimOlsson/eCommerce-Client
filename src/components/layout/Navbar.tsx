@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../../styles/layout/navbar.scss';
-import '../../styles/layout/slideinCart.scss';
+import '/src/styles/layout/slideInCart.scss';
 import SlideinCart from './SlideInCart';
 import { useCart } from '../../hooks/useCart';
 import { FaInstagram } from "react-icons/fa";
