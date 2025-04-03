@@ -1,0 +1,110 @@
+.slide-in-cart {
+    position: fixed;
+    right: -400px;
+    top: 3.0rem;
+    height: 100%;
+    background-color: white;
+    transition: right 0.3s ease;
+    box-shadow: 0px 2px 4px 0px #00000067;
+    padding: 0rem 1.5rem 5rem 1.5rem;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+  }
+
+  .slide-in-cart.open {
+    right: 0;
+  }
+
+  .cart-heading-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0rem;
+
+    h3 {
+      margin: .55rem 0 .5rem;
+      padding: 0;
+      font-size: 1rem;
+    }
+
+    .close-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: 1rem;
+      top: .6rem;
+      font-size: .7rem;
+      font-weight: 400;
+      padding: .16rem .4rem;
+      background-color: #e9e9e9;
+      color: #575757;
+      border-radius: 50%;
+    }
+  }
+  
+  .cart-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: .4rem;
+  }
+
+  .cart-item-button {
+    display: flex;
+    font-size: .6rem;
+    font-weight: 500;
+    padding: .1rem .5rem .2rem;
+    margin: 0 0 .4rem 0;
+    background-color: #e9e9e9;
+  }
+
+  .cart-item {
+    margin: .5rem 0 1rem 0;
+    border-bottom: 1px solid #e9e9e9;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    .cart-item-image {
+      width: 8rem;
+      object-fit: contain;
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      overflow: hidden;
+  }
+  
+  .cart-item-image img {
+      width: 100%;
+      height: auto;
+  }
+
+    .cart-item-title {
+        margin: 0;
+        font-size: .8rem;
+        font-weight: 600;
+
+    }
+
+    .cart-item-price {
+        margin: 0;
+        font-size: .7rem;
+        font-weight: 600;
+
+    }
+
+    .cart-item-quantity {
+      font-size: .7rem;
+      font-weight: 500;
+      margin: 0 0 .2rem 0;
+    }
+  }
+
+  .total-price {
+    margin: .5rem 0 1rem 0;
+  }

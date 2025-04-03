@@ -1,0 +1,75 @@
+
+.list-section {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 1rem;
+    justify-content: space-between;
+    border-bottom: 1px solid #cecece;
+    padding: 0.5rem 1rem;
+    margin: 2rem 0 0 0;
+    
+    // admin section heading
+    .list-top-heading {
+        margin: 1.2rem 0 0rem 0;
+        font-size: 1.7rem;
+    }
+    
+    .list-section-heading {
+        margin: 2rem 0 .5rem 0;
+        font-size: 1.1rem;
+        text-align: left;
+    }
+
+    .order-items-heading {
+        margin: 2rem 0 1.5rem 0;
+        font-size: 1.2rem;
+    }
+    
+    .list-heading {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        font-weight: bold;
+        border-top: 1px solid #cecece;
+        border-bottom: 1px solid #cecece;
+
+        p {
+            text-align: left;
+            width: 12rem;
+        }
+    }
+    .list-row {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        
+        p {
+            text-align: left;
+            width: 12rem;
+        }
+        
+        ul {
+            display: flex;
+            flex-direction: row;
+            
+            li {
+                text-align: left;
+                width: 12rem;
+                list-style: none;
+            }
+        }
+    }
+
+    .total-price {
+        display: flex;
+        flex-direction: row;
+        gap: .5rem;
+        margin: 2rem 0 .5rem 0;
+    }
+}

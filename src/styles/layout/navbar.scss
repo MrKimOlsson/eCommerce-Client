@@ -1,0 +1,105 @@
+nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    height: 3rem;
+    width: 100vw;
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    border-bottom: 1px solid #cecece;
+    z-index: 99999;
+
+    .cartItem-quantity {
+        background-color: #ff0000;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 12px;
+        height: 12px;
+        font-size: .6rem;
+        position: relative;
+        bottom: 25px;
+        left: 10px;
+        z-index: 99;
+    }
+
+    .logo {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: absolute;
+        width: 100vw;
+        z-index: 1;  
+
+        a {
+            text-decoration: none;
+        }
+    }
+    
+    h1 {
+        font-family: "Orbitron", sans-serif;
+        font-size: 2rem;
+        font-weight: 900;
+    }
+    
+    .right-links {
+        margin: .7rem 0 0 0;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        padding: 0 2.7rem 0 2rem;
+        gap: 1rem;
+        z-index: 2;
+
+        
+        li {
+            font-size: .9rem;
+            margin: 6px 0 0 0;
+            transition: all ease-in-out 200ms;
+
+            &:hover {
+                transform: translateY(-1px);
+            }
+
+            a {
+                text-decoration: none;
+                color: #000000;
+            }
+        }
+        
+        .product-icon {
+            position: relative;
+            bottom: 2px;
+            font-size: 17px;
+            
+        }
+
+        .dropdown {
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            min-width: 100px;
+          }
+          
+          .dropdown a {
+            display: block;
+            padding: 8px 12px;
+            color: black;
+            text-decoration: none;
+          }
+          
+          .dropdown a:hover {
+            background-color: #f2f2f2;
+          }
+    }
+}

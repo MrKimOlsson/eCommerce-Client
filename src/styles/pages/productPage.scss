@@ -1,0 +1,29 @@
+.product-page {
+    margin-top: 2rem;
+    width: 50vw;
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            margin: 0 0 .5rem 0;
+        }
+
+        .price {
+            margin: .5rem 0 1rem 0;
+        }
+
+        img {
+            width: 30rem;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+}
