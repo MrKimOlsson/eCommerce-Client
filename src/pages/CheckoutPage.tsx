@@ -39,31 +39,36 @@ function CheckoutPage() {
   // Function to fetch client secret
   const fetchClientSecret = async (orderId: number) => {
     console.log("Fetching client secret for Order ID:", orderId);
-  
-    const response = await fetch("https://e-commerce-api-rouge.vercel.app/stripe/create-checkout-session-embedded", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        items: cartItems,
-        orderId: orderId,
-        customerEmail: customerData.email
-      }),
-    });
+    try {
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(`Error fetching client secret: ${errorData.error || 'Unknown error'}`);
-    }
+      const response = await fetch("https://e-commerce-api-rouge.vercel.app/stripe/create-checkout-session-embedded", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items: cartItems,
+          orderId: orderId,
+          customerEmail: customerData.email
+        }),
+      });
 
-    const data = await response.json();
-    
-    if (!data.clientSecret) {
-      throw new Error("Received no client secret from the server.");
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+      }
+
+      const data = await response.json();
+      
+      if (!data.clientSecret) {
+        throw new Error("Received no client secret from the server.");
+      }
+      
+      return data.clientSecret;
+    } catch (error) {
+      console.error('Error fetching client secret:', error);
+      throw error;
     }
-    
-    return data.clientSecret;
   };
 
   const handleCustomerSubmit = async (newCustomerData: Omit<ICustomerCreate, 'id'>) => {
@@ -153,6 +158,7 @@ function CheckoutPage() {
         }
     } catch (error) {
         console.error('Error during submission:', error);
+        alert('An error occurred during checkout. Please try again.');
     }
 };
 
