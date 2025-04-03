@@ -18,9 +18,9 @@ export const CartPage = () => {
         dispatch({ type: REMOVE_FROM_CART, productId });
     };
 
-    const handleCheckout = () => {
-        window.location.href = '/checkout';
-    };
+    // const handleCheckout = () => {
+    //     window.location.href = '/checkout';
+    // };
 
 
     return (
