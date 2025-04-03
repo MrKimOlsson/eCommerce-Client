@@ -40,7 +40,7 @@ function CheckoutPage() {
   const fetchClientSecret = async (orderId: number) => {
     console.log("Fetching client secret for Order ID:", orderId);
   
-    const response = await fetch("http://localhost:3000/stripe/create-checkout-session-embedded", {
+    const response = await fetch("https://e-commerce-api-rouge.vercel.app/stripe/create-checkout-session-embedded", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ function CheckoutPage() {
 
     try {
         const emailCheckResponse = await fetch(
-            `http://localhost:3000/customers/email/${encodeURIComponent(newCustomerData.email)}`, {
+            `https://e-commerce-api-rouge.vercel.app/customers/email/${encodeURIComponent(newCustomerData.email)}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ function CheckoutPage() {
             if (errorData.message === "Customer not found") {
                 console.log("Customer not found; creating new customer.");
                 
-                const createCustomerResponse = await fetch('http://localhost:3000/customers', {
+                const createCustomerResponse = await fetch('https://e-commerce-api-rouge.vercel.app/customers', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -122,7 +122,7 @@ function CheckoutPage() {
 
         // If customerId is found or created, proceed to create the order
         if (customerId) {
-            const orderResponse = await fetch('http://localhost:3000/orders', {
+            const orderResponse = await fetch('https://e-commerce-api-rouge.vercel.app/orders', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

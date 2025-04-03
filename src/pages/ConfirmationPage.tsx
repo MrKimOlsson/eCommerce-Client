@@ -34,7 +34,7 @@ export const ConfirmationPage = () => {
       }
 
       try {
-        const response = await axios.get(`http://localhost:3000/orders/payment/${sessionId}`);
+        const response = await axios.get(`https://e-commerce-api-rouge.vercel.app/orders/payment/${sessionId}`);
         setOrderDetails(response.data);
       } catch (err) {
         if (axios.isAxiosError(err) && err.response?.status === 404) {
