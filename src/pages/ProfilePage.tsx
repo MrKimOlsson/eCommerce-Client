@@ -94,21 +94,25 @@ export const ProfilePage = () => {
 
                     {/* The customers order list */}
                     <h3>Orders</h3>
-                    {orderDetails.length > 0 ? (
-                        <ul>
-                            {orderDetails.map(order => (
-                                <li key={order.id}>
-                                    <p>Order ID: {order.id}</p>
-                                    <p>Total Price: {order.total_price} SEK</p>
-                                    <p>Status: {order.order_status}</p>
-                                </li>
-                            ))}
-                        </ul>
+                    {ordersLoading ? ( // Loading indicator for orders
+                        <p>Loading orders...</p>
                     ) : (
-                        <p>No orders found for this customer.</p>
+                        orderDetails.length > 0 ? (
+                            <ul>
+                                {orderDetails.map(order => (
+                                    <li key={order.id}>
+                                        <p>Order ID: {order.id}</p>
+                                        <p>Total Price: {order.total_price} SEK</p>
+                                        <p>Status: {order.order_status}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <p>No orders found for this customer.</p>
+                        )
                     )}
                 </div>
-            ) : (
+             ) : (
                 <p>No user logged in</p>
             )}
         </div>

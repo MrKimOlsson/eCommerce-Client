@@ -160,6 +160,8 @@ function SearchBar() {
           <button type="submit" id="btn-icon"><AiOutlineSearch size={24} /></button>
         </form>
       </section>
+
+      {loading && <p>Loading...</p>}
   
       {showResults && items.length > 0 && (
         <section id="results" className="results-dropdown" ref={resultsRef}>
