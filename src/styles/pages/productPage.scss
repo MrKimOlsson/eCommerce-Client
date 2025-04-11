@@ -1,16 +1,9 @@
 .product-page {
-    margin-top: 2rem;
-    width: 50vw;
-
-    .row {
-        display: flex;
-        flex-direction: row;
-        gap: 2rem;
-    }
-
-    .column {
-        display: flex;
-        flex-direction: column;
+    margin: 0 auto;
+    margin-top: 7rem;
+    min-width: 300px;
+    max-width: 1420px;
+    padding: 0 4rem;
 
         h1 {
             margin: 0 0 .5rem 0;
@@ -20,10 +13,10 @@
             margin: .5rem 0 1rem 0;
         }
 
-        img {
-            width: 30rem;
+        .product-image {
+            width: 100%;
+            max-width: 500px;
             height: auto;
             object-fit: cover;
         }
-    }
 }

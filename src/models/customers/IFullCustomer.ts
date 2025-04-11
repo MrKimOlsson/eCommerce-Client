@@ -1,5 +1,5 @@
 export interface IFullCustomer {
-    id: string;
+    id: number;
     firstname: string;
     lastname: string;
     email: string;
@@ -10,4 +10,5 @@ export interface IFullCustomer {
     city: string;
     country: string;
     created_at: string;
+    user_id: number,
 }

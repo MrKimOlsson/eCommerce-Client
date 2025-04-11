@@ -4,13 +4,16 @@ import { EmbeddedCheckoutProvider, EmbeddedCheckout} from '@stripe/react-stripe-
 import { useCart } from '../hooks/useCart'; 
 import { ICustomerCreate } from '../models/customers/ICustomer';
 import CheckoutForm from '../components/forms/CheckoutForm';
+import { useAuth } from '../hooks/useAuth';
 import '../styles/pages/checkoutPage.scss';
 
 const stripePromise = loadStripe('pk_test_51R4HXqPMclwytudJNfxuHUtHiLbKim9rsM2DyRarkL4IDLKtsx7ElnSsaZL9SEBkyrmJEcwtF8agWN2towZYcXF500dKMsFlUG');
 
 function CheckoutPage() {
   const { cartItems } = useCart();
-
+  const { user } = useAuth();
+  console.log("User ID:")
+  console.log(user?.id)
   const initialCustomerData = (() => {
     const storedData = localStorage.getItem('customerData');
     return storedData ? JSON.parse(storedData) : {
@@ -24,6 +27,7 @@ function CheckoutPage() {
       city: '',
       country: '',
       gdpr: false,
+      user_id: user?.id
     };
   })();
   
@@ -51,7 +55,6 @@ function CheckoutPage() {
           orderId: orderId,
           customerEmail: customerData.email
         }),
-        // credentials: 'include',
       });
 
       if (!response.ok) {
@@ -74,6 +77,11 @@ function CheckoutPage() {
 
   const handleCustomerSubmit = async (newCustomerData: Omit<ICustomerCreate, 'id'>) => {
     setCustomerData(newCustomerData); // Update customer data state
+
+    if (!user) {
+      console.error('No user is logged in.');
+      return; // Exit if there's no user
+    }
 
     try {
         const emailCheckResponse = await fetch(
@@ -108,7 +116,8 @@ function CheckoutPage() {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(newCustomerData),
+                    // body: JSON.stringify(newCustomerData),
+                    body: JSON.stringify({ ...newCustomerData }),
                 });
 
                 if (createCustomerResponse.ok) {
@@ -164,7 +173,7 @@ function CheckoutPage() {
 };
 
 if (cartItems.length === 0) {
-  return <div>Varukorgen måste innehålla varor för att kunna gå vidare med betalprocessen.</div>;
+  return <div>You have to add products to your cart before you can proceed to the checkout.</div>;
 }
 
 return (
@@ -173,7 +182,7 @@ return (
 
     {step === 1 ? ( // Customer information step
       <div className='checkout-step'>
-        <h3>Steg 1 - Leverans uppgifter</h3>
+        <h3>Step 1 - Deliver credentials</h3>
         <CheckoutForm
           onSubmit={handleCustomerSubmit} 
           isEditing={false} 
@@ -185,7 +194,7 @@ return (
       </div>
     ) : ( // Payment step
       <div className="checkout-step">
-        <h3>Steg 2 - Betalning</h3>
+        <h3>Step 2 - Payment</h3>
         <EmbeddedCheckoutProvider
           stripe={stripePromise}
           options={{ clientSecret }}

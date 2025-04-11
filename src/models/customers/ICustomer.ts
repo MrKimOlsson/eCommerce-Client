@@ -10,6 +10,7 @@ export interface ICustomer {
     city: string;
     country: string;
     created_at?: string;
+    user_id?: number;
 }
 
 export interface ICustomerCreate {
@@ -23,4 +24,5 @@ export interface ICustomerCreate {
     city: string;
     country: string;
     gdpr?: boolean;
+    user_id?: number;
 }

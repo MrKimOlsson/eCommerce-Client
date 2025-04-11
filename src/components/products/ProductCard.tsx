@@ -14,9 +14,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                 <div className='row'>
                     <div className='column'>
                         <h2 className='product-title'>{product.name}</h2>
-                        <h3 className='product-price'>Pris: {product.price}:-</h3>
+                        <h3 className='product-price'>Price: ${product.price}</h3>
                     </div>
-                    <button id="btn-primary">Köp</button>
+                    <button id="btn-primary">Buy</button>
                 </div>
             </Link>
         </div>

@@ -3,18 +3,33 @@ import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import '../../styles/shared/hero.scss';
 
 export const heroImages = [
-  'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  'https://cdn.pixabay.com/photo/2019/09/03/10/53/watch-4449152_1280.jpg',
-  'https://cdn.pixabay.com/photo/2020/02/02/11/41/cooler-bag-4812757_1280.jpg',
-  'https://images.unsplash.com/photo-1627664220128-ff2232937726?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+
+  'https://pbs.twimg.com/media/F83aMcKbYAAX9lE?format=jpg&name=4096x4096',
+
+  'https://pbs.twimg.com/media/Fs14hFNaYAA4S5Y?format=jpg&name=4096x4096',
+
+  'https://pbs.twimg.com/media/Fqh7pG6agAEFVRT?format=jpg&name=4096x4096',
+
+  'https://pbs.twimg.com/media/Ft-kt4eacAA1xnr?format=jpg&name=4096x4096',
+
+  'https://xreart.com/cdn/shop/products/13.jpg?v=1699501767&width=1946',
+
+  'https://img-va.myshopline.com/image/store/2000342678/1637116565587/25b648811e8c4f32aac5c67916602e1a_1800x.jpeg?w=1080&h=1080',
+
+  'https://xreart.com/cdn/shop/products/5.jpg?v=1699502312&width=1946',
+
+  'https://xreart.com/cdn/shop/products/3_70d022f1-50db-4573-8440-6c5330fe8dfb.jpg?v=1699502120&width=1946',
+
+  'https://xreart.com/cdn/shop/products/5_987324bb-61ca-4e03-87b5-4c1834922a45.jpg?v=1699502057&width=1946'
+
 ];
 
 interface HeroProps {
+  title: string,
   text: string,
 }
 
-const Hero = ({ text }: HeroProps) => {
+const Hero = ({ title, text }: HeroProps) => {
   const [imageIndex, setImageIndex] = useState(0);
   const controls = useAnimation();
   const imageUrl = heroImages[imageIndex];
@@ -27,7 +42,7 @@ const Hero = ({ text }: HeroProps) => {
     return () => clearInterval(timer);
   }, []);
 
-  // Scroll animation
+  // Scroll animation effect remains the same
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -66,9 +81,8 @@ const Hero = ({ text }: HeroProps) => {
       }}
     >
       <div className="hero-content">
-        <div className='row'>
+          <p className='hero-title'>{title}</p>
           <p className='hero-text'>{text}</p>
-        </div>
       </div>
 
       <AnimatePresence>
@@ -77,14 +91,14 @@ const Hero = ({ text }: HeroProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1 }} // Duration of the crossfade
+          transition={{ duration: 1 }}
           style={{
-            backgroundImage: `url(${imageUrl})`,
             position: 'absolute',
             top: 0,
             left: 0,
             width: '100%',
             height: '100%',
+            backgroundImage: `url(${imageUrl})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router';
 import '../../styles/layout/footer.scss';
 
 export const Footer = () => {
@@ -28,53 +29,53 @@ export const Footer = () => {
             </div>
 
             <div className="column">
-                <h4>Länkar</h4>
+                <h4>Important links</h4>
                 <ul>
                     <li>
                         <a href="#">GDPR</a>
                     </li>
                     <li>
-                        <a href="#">Frakt & Retur</a>
+                        <a href="#">FAQ</a>
                     </li>
                     <li>
-                        <a href="#">Leverans</a>
+                        <a href="#">Terms & conditions</a>
                     </li>
                     <li>
-                        <a href="#">Kundtjänst</a>
+                        <a href="#">Guarantee</a>
                     </li>
                 </ul>
             </div>
 
             <div className="column">
-                <h4>Produkter</h4>
+                <h4>From us to you</h4>
                 <ul>
                     <li>
-                        <a href="#">Män</a>
+                        <NavLink to="#">Shipping</NavLink>
                     </li>
                     <li>
-                        <a href="#">Kvinnor</a>
+                        <a href="#">Delivery</a>
                     </li>
                     <li>
-                        <a href="#">Barn</a>
+                        <a href="#">Returns</a>
                     </li>
                     <li>
-                        <a href="#">Accesoarer</a>
+                        <a href="#">Support</a>
                     </li>
                 </ul>
             </div>
 
 
             <div className="column">
-                <h4>Butik</h4>
+                <h4>Visit us</h4>
                 <ul>
                     <li>
-                        Hittepågatan 12
+                        Perfect street 12
                     </li>
                     <li>
                         123 45
                     </li>
                     <li>
-                        Stockholm
+                        Some City
                     </li>
                     <li>
                         <a href="#">Tel: 020-123 456</a>

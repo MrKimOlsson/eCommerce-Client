@@ -25,7 +25,7 @@ export const CartPage = () => {
 
     return (
         <div className="cart-page">
-            <h2>Kundvagn</h2>
+            <h2>Your cart</h2>
             {totalQuantity > 0 ? (
                 <div>
                     <ul>
@@ -33,11 +33,10 @@ export const CartPage = () => {
                             <li key={item.id} className="cart-page-item">
                                 <img src={item.image} alt={item.name} className="cart-page-item-image" />
                                 <div className="cart-page-item-details">
-                                    <h3>{item.name}</h3>
-                                    <p>Kategori: {item.category}</p>
-                                    <p>Beskrivning: {item.description}</p>
-                                    <p>Pris: {item.price} kr</p>
-                                    <p>Antal: {item.quantity}</p>
+                                    <h3>{item.name}</h3>    
+                                    <p>{item.description}</p>
+                                    <p>Price: ${item.price}</p>
+                                    <p>Amount: {item.quantity}</p>
                                     <div className="cart-page-button-container">
                                         <button 
                                             className='cart-page-item-button' 
@@ -55,7 +54,7 @@ export const CartPage = () => {
                                             className='cart-page-item-button' 
                                             onClick={() => handleRemoveFromCart(item.id)}
                                         >
-                                            Ta bort
+                                            Remove
                                         </button>
                                     </div>
                                 </div>
@@ -63,14 +62,14 @@ export const CartPage = () => {
                         ))}
                     </ul>
                     <div className='cart-page-row'>
-                        <h3 className='cart-page-total-price'>Totalt: {totalPrice} kr</h3>
+                        <h3 className='cart-page-total-price'>Total: ${totalPrice}</h3>
                         <NavLink to="/checkout">
-                            <button id="btn-primary">Beställ</button>  
+                            <button id="btn-primary">Order</button>  
                         </NavLink>
                     </div>
                 </div>
             ) : (
-                <p>Din kundvagn är tom - Lägg till en <a href="/">produkt</a></p>
+                <p>Your cart is empty - Add a <a href="/">product</a></p>
             )}
         </div>
     );

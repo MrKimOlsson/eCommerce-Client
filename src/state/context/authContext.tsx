@@ -34,6 +34,8 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         axios.defaults.headers.common['Authorization'] = "Bearer " + response.token;
 
         setUser(response.user);
+        console.log("user id")
+        console.log(response.user.id)
                       // Log the user at login
         console.log("User after login:", response.user);
         // Clear previous user data if needed

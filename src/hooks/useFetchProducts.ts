@@ -3,7 +3,7 @@ import { useProducts } from '../state/context/ProductContext';
 import { fetchProducts } from '../state/actions/ProductActions';
 
 export const useFetchProducts = () => {
-    const { dispatch } = useProducts();
+    const { products, dispatch } = useProducts();
 
     useEffect(() => {
         const fetchProductsData = async () => {
@@ -12,4 +12,6 @@ export const useFetchProducts = () => {
 
         fetchProductsData();
     }, [dispatch]);
+
+    return products;
 };

@@ -23,8 +23,6 @@ export const ConfirmationPage = () => {
     dispatch({ type: CLEAR_CART });
     localStorage.removeItem('cartItems');
     localStorage.removeItem('customerData');
-    // localStorage.setItem('resetCart', JSON.stringify(true));
-
 
     const fetchOrderDetails = async () => {
       if (!sessionId) {
@@ -60,14 +58,14 @@ export const ConfirmationPage = () => {
   return (
     <section className='list-section'>
 
-      <h2 className='list-top-heading'>Tack för din beställning!</h2>
+      <h2 className='list-top-heading'>Thank you for your order!</h2>
 
-      <h2 className='list-section-heading'>Beställning</h2>
+      <h2 className='list-section-heading'>Your order details</h2>
       <div className='list-heading'>
-        <p>Beställnings ID</p>
-        <p>Kund ID</p>
+        <p>Order ID</p>
+        <p>Customer ID</p>
         <p>Status</p>
-        <p>Datum</p>
+        <p>Date</p>
       </div>
 
       <div className="list-row">
@@ -81,10 +79,10 @@ export const ConfirmationPage = () => {
       <h2 className='list-section-heading'>Leverans</h2>
 
       <div className='list-heading'>
-        <p>Namn</p>
-        <p>Adress</p>
-        <p>Telefon</p>
-        <p>Epost</p>
+        <p>Name</p>
+        <p>Address</p>
+        <p>Phone</p>
+        <p>Email</p>
       </div>
 
       <div className="list-row">
@@ -97,9 +95,9 @@ export const ConfirmationPage = () => {
       <h2 className='list-section-heading'>Produkter:</h2>
 
       <div className='list-heading'>
-        <p>Produkt</p>
-        <p>Antal</p>
-        <p>Pris</p>
+        <p>Product</p>
+        <p>Amount</p>
+        <p>Price</p>
         <p>ID</p>
       </div>
 
@@ -123,8 +121,8 @@ export const ConfirmationPage = () => {
         ))}
 
       <div className="total-price">
-        <h3>Totalt:</h3>
-        <h3>{orderDetails.total_price} SEK</h3>
+        <h3>Total:</h3>
+        <h3>${orderDetails.total_price}</h3>
       </div>
       
     </section>

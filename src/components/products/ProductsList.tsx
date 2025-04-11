@@ -2,13 +2,14 @@ import { ProductCard } from './ProductCard';
 import { useProducts } from '../../state/context/ProductContext';
 import { useFetchProducts } from '../../hooks/useFetchProducts';
 import '../../styles/products/products.scss';
+import { motion } from 'framer-motion';
+
 
 export const ProductList = () => {
     const { products, error, loading } = useProducts();
 
     console.log(products)
 
-    // Use hook to fetch products
     useFetchProducts();
 
     if (loading) {
@@ -22,7 +23,15 @@ export const ProductList = () => {
     return (
         <div className='product-list'>
             {products.map(product => (
-                <ProductCard key={product.id} product={product} />
+                <motion.div
+                    key={product.id}
+                    initial={{ opacity: 0, y: 30, scale: 0}}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: false }}
+                >
+                    <ProductCard product={product} />
+                </motion.div>
             ))}
         </div>
     );

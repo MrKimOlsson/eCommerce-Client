@@ -14,6 +14,9 @@ const CustomerManagement = () => {
     const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
     const actionRef = useRef<HTMLDivElement | null>(null);
 
+    console.log("Customers:")
+    console.log(customers)
+
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             const target = event.target as Node;

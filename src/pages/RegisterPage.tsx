@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { registerUser } from '../services/authService';
-import { useNavigate } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
+import '../styles/forms/form.scss'
+
 
 const RegisterPage = () => {
     const [username, setUsername] = useState('');
@@ -20,28 +22,34 @@ const RegisterPage = () => {
     };
 
     return (
-        <div>
-            <h2>Register</h2>
-            <form onSubmit={handleRegister}>
-                <input
-                    name="username"
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Username"
-                    required
-                />
-                <input
-                    name="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Password"
-                    required
-                />
-                <button type="submit">Register</button>
-            </form>
-        </div>
+        <section className='section'>
+            <div className='column'>
+                <h2>Register</h2>
+                <form  className="border" onSubmit={handleRegister}>
+                    <input
+                        name="username"
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Username"
+                        required
+                    />
+                    <input
+                        name="password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Password"
+                        required
+                    />
+                    <button className="form-button" type="submit">Register</button>
+
+                    <p>Already have an account?</p>
+                    <NavLink to="/login">Login</NavLink>
+                </form>
+            </div>
+        </section>
+
     );
 };
 

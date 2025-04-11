@@ -51,7 +51,7 @@ const CheckoutForm = (props: CheckoutFormProps) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="border" onSubmit={handleSubmit}>
             {/* <h3>Leverans uppgifter</h3> */}
             <div className='row'>
 

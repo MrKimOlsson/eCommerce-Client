@@ -6,10 +6,9 @@ export const HomePage = () => {
   return (
     <>
       <Hero
-        text='Be proud of your Quirk'
+        title='Display your Quirks'
+        text='Whit our disassembled tech art'
       />
-      <section className="post-hero-content-wrapper">
-      </section>
       <ProductList />
     </>
   )

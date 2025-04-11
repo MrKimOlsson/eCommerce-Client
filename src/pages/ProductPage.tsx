@@ -5,6 +5,9 @@ import { useAddToCart } from '../hooks/useAddToCart';
 import { ICartItem } from '../models/cart/ICartItem';
 import '../styles/pages/productPage.scss';
 import '../styles/globalStyles.scss';
+import SimilarProducts from '../components/products/SimilarProducts';
+import { motion } from 'framer-motion';
+
 
 export const ProductPage = () => {
     const { id } = useParams<{ id?: string }>();
@@ -39,24 +42,37 @@ export const ProductPage = () => {
 
     return (
         <div className="product-page">
-            <div className='row'>
-                <div className='column'>
-                    <img src={actualProduct.image} alt={actualProduct.name} />
-                </div>
+             <motion.div
+                initial={{ opacity: 0, y: 30 }} // Starting state
+                whileInView={{ opacity: 1, y: 0 }} // State when in view
+                transition={{ duration: 0.5 }} // Duration of the animation
+                viewport={{ once: false }} // Set to true to animate only once
+                >
+            <div className='responsive-row-column'>
+               
+                    <img className="product-image" src={actualProduct.image} alt={actualProduct.name} />
+             
                 <div className='column'>
                     <h1>{actualProduct.name}</h1>
                     <p>{actualProduct.description}</p>
-                    <p className='price'><b>Pris: {actualProduct.price}kr</b></p>
+                    <br/>
+                    <p>Please note that this is a fictive website, showcasing select products for demonstration purposes. 
+                        I do not sell these products; my focus is on web development. 
+                        If you're interested in purchasing any of these fantastic items, I encourage you to visit <a href="https://xreart.com/">Xreart.com</a>.</p>
+                    <br/>
+                    <p className='price'><b>Price: ${actualProduct.price}</b></p>
                     {isOutOfStock ? (
                         <div className="out-of-stock-message">
-                            <p>Tillfälligt slut i lagret</p>
-                            <button disabled className="out-of-stock-button">Köp</button>
+                            <p>Out of stock</p>
+                            <button disabled className="out-of-stock-button">Add to cart</button>
                         </div>
                     ) : (
-                        <button id='btn-primary' onClick={handleAddToCart}>Köp</button>
+                        <button id='btn-primary' onClick={handleAddToCart}>Add to cart</button>
                     )}
                 </div>
             </div>
+                </motion.div>
+            <SimilarProducts currentCategory={actualProduct.category} />
         </div>
     );
 };

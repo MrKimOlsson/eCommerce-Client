@@ -8,6 +8,7 @@ footer {
     height: auto;
     width: 100vw;
     border-top: 1px solid #cecece;
+    padding: 2rem 0;
 
     .logo {
         display: flex;
@@ -44,10 +45,7 @@ footer {
         justify-content: space-evenly;
         width: 100%;
 
-        .column {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+        
 
             ul {
             display: flex;
@@ -55,8 +53,9 @@ footer {
             align-items: flex-start;
             padding: 0;
             list-style: none;
-            margin: 0 0 2rem 0;
+            margin: .5rem 0 2rem 0;
             text-align: left;
+            line-height: 1.9rem;
                 
                 li {
 
@@ -66,6 +65,5 @@ footer {
                     }
                 }
             }
-        }
     }
 }

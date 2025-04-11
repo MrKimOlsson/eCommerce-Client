@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useAuth } from '../hooks/useAuth'; // Import the useAuth hook
-import { useLocation, useNavigate } from 'react-router';
+import { NavLink, useLocation, useNavigate } from 'react-router';
+import '../styles/forms/form.scss'
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const { login } = useAuth(); // Get the login function from context
-    const location = useLocation(); // Get the location object
-    const navigate = useNavigate(); // Use to navigate programmatically
+    const { login } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -30,28 +31,35 @@ const LoginPage = () => {
     };
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleLogin}>
-                <input
-                    name="username"
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    placeholder="Username"
-                    required
-                />
-                <input
-                    name="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Password"
-                    required
-                />
-                <button type="submit">Login</button>
-            </form>
-        </div>
+        <section className='section'>
+            <div className='column'>
+
+                <h2>Login</h2>
+                <form className="border" onSubmit={handleLogin}>
+
+                        <input
+                            name="username"
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            placeholder="Username"
+                            required
+                        />
+                        <input
+                            name="password"
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Password"
+                            required
+                        />
+                    <button className="form-button" type="submit">Login</button>
+                    <p>Don´t have an account?</p>
+                    <NavLink to="/register">Register</NavLink>
+
+                </form>
+            </div>
+        </section>
     );
 };
 
